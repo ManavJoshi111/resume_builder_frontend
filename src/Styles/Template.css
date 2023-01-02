@@ -1,0 +1,18 @@
+.resume_classes{
+    margin: 0 !important;
+    padding: 0 !important;  
+}
+
+.resume_classes  *{
+    margin: 0 !important;
+    padding:0 !important;
+}
+
+.education *,.skills *,.experience *,.projects *{
+    margin: 0 !important;
+    padding:0 !important;
+}
+
+.skills_ul li{
+    margin-right: 4px !important;
+}

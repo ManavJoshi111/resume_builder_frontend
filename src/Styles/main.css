@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+}
+
+:root {
+  --main-color: #7946e6;
+  --main-color-dark: #1fcdc7;
+  --pink: #ffaebc;
+  --mint: #b4f8c8;
+  --yellow: #fbe7c6;
+}
+
+#color {
+  color: var(--main-color);
+}
+
+#lbtn {
+  height: 50px;
+  width: 140px;
+  line-height: 0;
+}
+
+.cvimage {
+  transform: rotate(-20deg);
+}
+
+input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(121, 70, 230, 0.25) !important;
+  /* box-shadow: #7946e6 !important; */
+  border-color: #ffffff !important;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: white;
+}
+
+.notDisplay {
+  display: none;
+}
+
+.container-fluid {
+  width: 100%;
+}
+

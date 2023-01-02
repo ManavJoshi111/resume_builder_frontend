@@ -1,0 +1,22 @@
+nav {
+  box-shadow: 0 4px 10px -7px #777;
+}
+
+.logoimg{
+  height: 40px;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--main-color) !important;
+}
+
+.active_class {
+  color: #7946e6 !important;
+}

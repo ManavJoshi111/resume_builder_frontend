@@ -1,0 +1,65 @@
+.form-signin {
+  padding: 15px 35px 45px;
+  margin-top: 30px !important;
+  /* height: 510px; */
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-signin-heading {
+  margin-bottom: 10px;
+}
+
+.checkbox {
+  margin-bottom: 30px;
+}
+
+.checkbox {
+  font-weight: normal;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+input,
+textarea {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 5px;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.disabled {
+  opacity: 0.65 !important;
+}
+
+.hori {
+  width: 50%;
+  float: left;
+}
+
+.pgdisplay {
+  display: none;
+}
+
+#pbtn {
+  height: 35px;
+  width: 70px;
+  line-height: 0;
+}
+
+@media screen and (max-width: 768px){
+  .form-signin{
+    margin: 0 !important;
+  }
+}
