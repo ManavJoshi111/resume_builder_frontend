@@ -11,7 +11,7 @@ import login from "../Images/log_in.png";
 const Login = (props) => {
   const Authenticate = async () => {
     try {
-      const res = await fetch("https://resume-builder-backend-x66t.onrender.com//makecv", {
+      const res = await fetch("https://resume-builder-backend-x66t.onrender.com/makecv", {
         method: "GET",
         headers: {
           Accept: "application/json",
