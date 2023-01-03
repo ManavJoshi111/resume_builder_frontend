@@ -12,7 +12,7 @@ import signin from "../Images/sign_in.png";
 const Signup = (props) => {
   const Authenticate = async () => {
     try {
-      const res = await fetch("http://localhost:3001/makecv", {
+      const res = await fetch("https://resume-builder-backend-x66t.onrender.com//makecv", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -61,7 +61,7 @@ const Signup = (props) => {
   const sendData = async (e) => {
     e.preventDefault();
     console.log("Data is : ", Data);
-    const res = await fetch("http://localhost:3001/signup", {
+    const res = await fetch("https://resume-builder-backend-x66t.onrender.com//signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

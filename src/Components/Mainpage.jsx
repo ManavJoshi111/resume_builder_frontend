@@ -14,7 +14,7 @@ const Mainpage = (props) => {
   const [id, setid] = useState("");
   const Authenticate = async () => {
     try {
-      const res = await fetch("http://localhost:3001/makecv", {
+      const res = await fetch("https://resume-builder-backend-x66t.onrender.com//makecv", {
         method: "GET",
         headers: {
           "Accept": "application/json",
@@ -65,7 +65,7 @@ const Mainpage = (props) => {
   };
 
   const sendData = async () => {
-    const res = await fetch('http://localhost:3001/update', {
+    const res = await fetch('https://resume-builder-backend-x66t.onrender.com//update', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

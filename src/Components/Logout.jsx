@@ -6,7 +6,7 @@ const Logout = (props) => {
   const navigate = useNavigate();
   //promises
   useEffect(() => {
-    fetch("http://localhost:3001/logout", {
+    fetch("https://resume-builder-backend-x66t.onrender.com//logout", {
       method: "GET",
       headers: {
         Accept: "application/json",
