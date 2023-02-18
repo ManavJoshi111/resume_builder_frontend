@@ -9,9 +9,11 @@ import {
 import login from "../Images/log_in.png";
 
 const Login = (props) => {
+  console.log("In Login :::::::::");
+  console.log(`${process.env.REACT_APP_SERVER_URL}makecv`);
   const Authenticate = async () => {
     try {
-      const res = await fetch("https://resume-builder-backend-x66t.onrender.com/makecv", {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}makecv`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -47,9 +49,12 @@ const Login = (props) => {
 
   const sendData = async (e) => {
     e.preventDefault();
+    console.log("Disabled : ", e.target.disabled);
+    e.target.disabled = true;
+    e.target.value = "Logging In...";
     const { username, password } = Data;
     let res;
-    res = await fetch("https://resume-builder-backend-x66t.onrender.com/login", {
+    res = await fetch(`${process.env.REACT_APP_SERVER_URL}login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,6 +63,8 @@ const Login = (props) => {
       body: JSON.stringify({ username, password }),
     });
     console.log(res);
+    e.target.disabled = false;
+    e.target.value = "Login";
     if (res.status !== 200 && res.status !== 400) {
       toast.error("Someting went wrong, Please try again after sometime", {
         position: "top-center",
@@ -159,6 +166,7 @@ const Login = (props) => {
                     </div>
                     <input
                       type="submit"
+                      disabled={false}
                       value="Log In"
                       className="btn btn-primary"
                       id="lbtn"

@@ -8,7 +8,7 @@ const Profile = (props) => {
   const [User, setUser] = useState("");
   const Authenticate = async () => {
     try {
-      const res = await fetch("https://resume-builder-backend-x66t.onrender.com/makecv", {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}makecv`, {
         method: "GET",
         headers: {
           Accept: "application/json",

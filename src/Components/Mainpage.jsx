@@ -14,7 +14,7 @@ const Mainpage = (props) => {
   const [id, setid] = useState("");
   const Authenticate = async () => {
     try {
-      const res = await fetch("https://resume-builder-backend-x66t.onrender.com/makecv", {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}makecv`, {
         method: "GET",
         headers: {
           "Accept": "application/json",
@@ -65,7 +65,7 @@ const Mainpage = (props) => {
   };
 
   const sendData = async () => {
-    const res = await fetch('https://resume-builder-backend-x66t.onrender.com/update', {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,34 +76,46 @@ const Mainpage = (props) => {
     const resJson = await res.json();
     console.log(resJson);
   }
-
-  return (
-    Info.name && (
-      <>
-        {/* <h2 className="heading h1 fw-bold">Select Template : </h2> */}
-        {/* <div className="container mt-3 d-flex justify-content-center align-items-center">
-          <img src={Resume_1} alt="" className="mx-2" height={270} width={250} />
-          <img src={Resume_2} alt="" className="mx-2" height={270} width={250} />
-        </div> */}
-        <div className="container-fluid mt-3 flex-wrap d-flex flex-column flex-md-row justify-content-center align-items-flex-baseline">
-          <div className="leftcontainer">
-            <h2 className="heading h1 fw-bold">Enter Your Details : </h2>
-            <Form getName={getName} Info={Info}></Form>
+  if (Info.name) {
+    return (
+      (
+        <>
+          {/* <h2 className="heading h1 fw-bold">Select Template : </h2> */}
+          {/* <div className="container mt-3 d-flex justify-content-center align-items-center">
+           <img src={Resume_1} alt="" className="mx-2" height={270} width={250} />
+           <img src={Resume_2} alt="" className="mx-2" height={270} width={250} />
+         </div> */}
+          <div className="container-fluid mt-3 flex-wrap d-flex flex-column flex-md-row justify-content-center align-items-flex-baseline">
+            <div className="leftcontainer">
+              <h2 className="heading h1 fw-bold">Enter Your Details : </h2>
+              <Form getName={getName} Info={Info}></Form>
+            </div>
+            <div className="rightcontainer mt-4">
+              <Resume data={Info} ref={componentRef} username={Info.username}></Resume>
+            </div>
+            <button
+              type="button"
+              disabled={false}
+              className="btn btn-primary mb-4 mt-2 align-self-center"
+              onClick={() => { handlePrint(); sendData() }}
+            >
+              Print Resume
+            </button>
           </div>
-          <div className="rightcontainer mt-4">
-            <Resume data={Info} ref={componentRef} username={Info.username}></Resume>
-          </div>
-          <button
-            type="button"
-            className="btn btn-primary mb-4 mt-2 align-self-center"
-            onClick={() => { handlePrint(); sendData() }}
-          >
-            Print Resume
-          </button>
+        </>
+      )
+    );
+  }
+  else {
+    return (
+      <div className="container d-flex justify-content-center align-items-center">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
-      </>
-    )
-  );
+      </div>
+    );
+  }
+
 };
 
 export default Mainpage;

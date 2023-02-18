@@ -12,7 +12,7 @@ import signin from "../Images/sign_in.png";
 const Signup = (props) => {
   const Authenticate = async () => {
     try {
-      const res = await fetch("https://resume-builder-backend-x66t.onrender.com/makecv", {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}makecv`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -60,16 +60,22 @@ const Signup = (props) => {
 
   const sendData = async (e) => {
     e.preventDefault();
+    e.target.disabled = true;
+    e.target.value = "Signing Up...";
     console.log("Data is : ", Data);
-    const res = await fetch("https://resume-builder-backend-x66t.onrender.com/signup", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(Data),
     });
+    console.log(res);
+    e.target.disabled = false;
+    e.target.value = "Sign Up";
     const resJson = await res.json();
     console.log(resJson);
+    console.log("Disabled : ", e.target.disabled);
     if (resJson.message) {
       toast.success(resJson.message, {
         position: "top-center",
@@ -116,7 +122,7 @@ const Signup = (props) => {
                       Sign Up
                     </h3>
                   </div>
-                  <form action="#" method="post">
+                  <form method="post">
                     <div className="form-group first">
                       <input
                         type="text"
@@ -179,6 +185,7 @@ const Signup = (props) => {
                     </div>
                     <input
                       type="submit"
+                      disabled={false}
                       value="Sign Up"
                       className="btn btn-primary mb-3"
                       id="lbtn"
