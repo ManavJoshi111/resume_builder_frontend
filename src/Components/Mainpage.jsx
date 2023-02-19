@@ -19,6 +19,7 @@ const Mainpage = (props) => {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
+          "Allow-Control-Allow-Origin": "*"
         },
         credentials: "include",
       });

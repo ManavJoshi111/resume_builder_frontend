@@ -58,7 +58,7 @@ const Login = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Allow-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*"
       },
       credentials: "include",
       body: JSON.stringify({ username, password }),
