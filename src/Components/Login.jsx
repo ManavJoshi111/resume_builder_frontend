@@ -58,7 +58,7 @@ const Login = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "https://resume-builder-backend-x66t.onrender.com",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methos": "GET,POST,PUT,DELETE,OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type,Authorization"
       },
