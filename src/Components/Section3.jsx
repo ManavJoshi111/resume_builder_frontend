@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 function Section3(props) {
   console.log("Props in section 3 : ", props.Info.skills);
   const initialValue = { ...props.Info, ...props.Info.skills, ...props.Info.certificates };
-  let [Data, setData] = useState({ initialValue });
-  console.log("Inital value in section 3 : ", initialValue);
+  let [Data, setData] = useState({ ...initialValue });
+  console.log("Inital value in section 3 : ", Data);
 
   const handleChange = (e) => {
     setData({

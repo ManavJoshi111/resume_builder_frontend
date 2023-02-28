@@ -4,7 +4,7 @@ function Section4(props) {
   const initialvalue = { ...props.Info, ...props.Info.skills, ...props.Info.certificates };
   // const [Data, setData] = useState({ ...props.Info, ...props.Info.skills, ...props.Info.cer
   // tificates });
-  const [Data, setData] = useState({ initialvalue });
+  const [Data, setData] = useState({ ...initialvalue });
 
   const handleChange = (e) => {
     setData({

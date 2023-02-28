@@ -156,12 +156,14 @@ const Login = (props) => {
                     </div>
                     <div className="d-flex mb-3 mt-1 align-items-center">
                       <span className="ml-auto">
-                        <NavLink
-                          to="/signup"
-                          className="loginredirect text-decoration-none"
-                        >
-                          Don't Have Account ?
-                        </NavLink>
+                        Don't Have Account ?&nbsp;
+                        <u>
+                          <NavLink
+                            to="/signup"
+                            className="loginredirect text-decoration-none"
+                          >Click Here
+                          </NavLink>
+                        </u>
                       </span>
                     </div>
                     <input

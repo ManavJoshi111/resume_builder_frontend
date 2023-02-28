@@ -175,12 +175,15 @@ const Signup = (props) => {
                     </div>
                     <div className="d-flex mb-3 mt-1 align-items-center">
                       <span className="ml-auto">
-                        <NavLink
-                          to="/login"
-                          className="loginredirect text-decoration-none"
-                        >
-                          Already Have Account ?
-                        </NavLink>
+                        Already Have Account ?&nbsp;
+                        <u>
+                          <NavLink
+                            to="/login"
+                            className="loginredirect text-decoration-none"
+                          >
+                            Click Here
+                          </NavLink>
+                        </u>
                       </span>
                     </div>
                     <input

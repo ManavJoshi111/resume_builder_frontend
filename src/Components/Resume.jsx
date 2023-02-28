@@ -5,7 +5,6 @@ const Resume = React.forwardRef((props, ref) => {
   console.log(props.data);
   return (
     <>
-      <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
       <div className="resume" ref={ref} id="print-content">
         <div className="resume_left">
           <div className="resume_content">

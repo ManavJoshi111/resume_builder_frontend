@@ -1,98 +1,76 @@
-import React from 'react'
-import "../Styles/Template.css";
-const Template = () => {
+import React from "react";
+
+const Template = React.forwardRef((props, ref) => {
     return (
-        // Create minimalistic resume template
-        <>
-            <div className="container w-75 border border-dark mt-4">
-                <div className="text-center mt-1 resume_classes d-flex justify-content-center align-items-center flex-column">
-                    <h1 className='display-5'>Manav Joshi</h1>
-                    <p>Idar, Gujarat, India</p>
-                    <p><a href="https://manavportfolio.netlify.app" target="_blank" className='text-dark'>Manav Portfolio</a></p>
-                    <div className="social_handles d-flex">
-                        <ul className='d-flex flex-row p-0'>
-                            <li className="">Hackerrank</li>
-                            <li className="mx-2">CodeChef</li>
-                            <li className="mx-2">Leetcode</li>
-                            <li className="mx-2">Github</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="education mt-3 p-0 m-0">
-                    <h3 className="m-0">Education</h3>
-                    <hr className='w-100 text-dark m-0 p-0' />
-                    <div className="m-0 p-0 d-flex justify-content-between">
-                        <h4>Birla Vishvakarma Mahavidyalaya</h4>
-                        <p>2020-2024</p>
-                    </div>
-                    <h6>B.Tech (Computer Engineering)</h6>
-                </div>
-                <div className="skills mt-3 p-0 m-0">
-                    <h3 className="m-0">Skills</h3>
-                    <hr className='w-100 text-dark m-0 p-0' />
-                    <div className="container d-flex flex-row">
-                        {/* <p className='fw-bold'>Programming Languages : </p> */}
-                        <ul className='p-0 m-0 d-flex flex-row skills_ul'>
-                            <li>C/C++</li>
-                            <li>Java</li>
-                            <li>JavaScript</li>
-                            <li>PHP</li>
-                            <li>MySQL</li>
-                        </ul>
-                    </div>
-                    <div className="container d-flex flex-row">
-                        <ul className='p-0 m-0 d-flex flex-row skills_ul'>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>React</li>
-                            <li>Bootstrap</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="projects mt-3 p-0 m-0">
-                    <h3 className="m-0">Projects</h3>
-                    <hr className='w-100 text-dark m-0 p-0' />
-                    <div className="m-0 p-0 d-flex justify-content-between flex-column">
-                        <h5>Spotified - A music player web-app | <u className=''>Link</u></h5>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo excepturi et possimus, eos ad perferendis sunt accusantium velit consequuntur nostrum pariatur minus! Velit, incidunt vel! Animi temporibus quibusdam veritatis. Voluptatibus.</p>
-                    </div>
-                    <div className="m-0 p-0 d-flex justify-content-between flex-column">
-                        <h5>Spotified - A music player web-app | <u className=''>Link</u></h5>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo excepturi et possimus, eos ad perferendis sunt accusantium velit consequuntur nostrum pariatur minus! Velit, incidunt vel! Animi temporibus quibusdam veritatis. Voluptatibus.</p>
-                    </div>
-                </div>
-                <div className="experience mt-3 p-0 m-0">
-                    <h3 className="m-0">Experience</h3>
-                    <hr className='w-100 text-dark m-0 p-0' />
-                    <div className="m-0 p-0 d-flex justify-content-between flex-column">
-                        <div className="d-flex justify-content-between flex-row">
-                            <h5>Thinkbeat Solutions</h5>
-                            <p>Jul 2020 - Jun 2020</p>
+        <div className="resume_2 container border border-primary" ref={ref} >
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="profile">
+                        <center>
+                            <h2 className="name mt-2">{props.data.name}</h2>
+                            <a href={`tel:${props.data.contact}`} target="_blank"><i className="bi bi-telephone-fill"> {props.data.contact}</i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href={`mailto:${props.data.email}`} target="_blank"><i className="bi bi-envelope-fill"></i> {props.data.email}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i className="bi bi-geo-alt-fill"></i> {props.data.address}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br />
+                            <a href={`${props.data.portfolio}`} target="_blank"><i className="bi bi-link"></i> {props.data.portfolio}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href={`https://github.com/${props.data.github}`} target="_blank"><i className="bi bi-github">{props.data.github}</i> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </center>
+                        <hr />
+                        <div className="education">
+                            <h2>Education</h2>
+                            <div className="school">
+                                <h4>{props.data.cname}</h4>
+                                <p className="institution pb-0 mb-0">{props.data.cname}</p>
+                                <p className="date">{props.data.collegesdata} - {props.data.collegeedate}</p>
+                            </div>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo excepturi et possimus, eos ad perferendis sunt accusantium velit consequuntur nostrum pariatur minus! Velit, incidunt vel! Animi temporibus quibusdam veritatis. Voluptatibus.</p>
-                    </div>
-                </div>
-                <div className="skills mt-3 p-0 m-0">
-                    <h3 className="m-0">Certifications</h3>
-                    <hr className='w-100 text-dark m-0 p-0' />
-                    <div className="container d-flex flex-row">
-                        <ul className='p-0 m-0 d-flex flex-column skills_ul'>
-                            <li><h6>C/C++</h6></li>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, labore!</p>
+                        <h2>Skills</h2>
+                        <ul className="skills d-flex justify-content-between align-items-center mb-0">
+                            {props.data.skills && props.data.skills.map((skill) => {
+                                return <span className="skill">{skill + "  "}</span>;
+                            })}
                         </ul>
                     </div>
-                    <div className="container d-flex flex-row">
-                        <ul className='p-0 m-0 d-flex flex-column skills_ul'>
-                            <li><h6>C/C++</h6></li>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, labore!</p>
-                        </ul>
-                    </div>
-
                 </div>
-                <div className="mb-5"></div>
+                <div className="">
+                    <div className="summary">
+                        <h2>About Me</h2>
+                        <p>
+                            {props.data.about}
+                        </p>
+                    </div>
+                    <div className="experience">
+                        <h2>Experience</h2>
+                        <div className="job">
+                            <h4>{props.data.jtitle}</h4>
+                            <p className="date mb-1">{props.data.sdate} - {props.data.edate}</p>
+                            <ul className="">
+                                <li>{props.data.jdesc}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="experience">
+                        <h2>Project</h2>
+                        <div className="job">
+                            <div className="container d-flex justify-content-between flex-row">
+                                <h4 className="mb-0">{props.data.ptitle1}</h4>
+                                {props.data.plink1 &&
+                                    <p className="semi-bold td-underlinemt-0 mb-0"><a className="text-dark" href={props.data.plink1} target="_blank" ><u>Link</u></a></p>}
+                            </div>
+                            <ul className=""><li>{props.data.pdesc1}</li></ul>
+                        </div>
+                        <div className="job">
+                            <div className="container d-flex justify-content-between flex-row">
+                                <h4 className="mb-0">{props.data.ptitle2}</h4>
+                                {props.data.plink2 &&
+                                    <p className="semi-bold td-underlinemt-0 mb-0"><a className="text-dark" href={props.data.plink2} target="_blank" ><u>Link</u></a></p>}
+                            </div>
+                            <ul className=""><li>{props.data.pdesc2}</li></ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </>
-    )
-}
-
+        </div >
+    );
+});
 export default Template;

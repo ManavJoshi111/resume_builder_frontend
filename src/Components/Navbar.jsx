@@ -5,7 +5,6 @@ import Signup from "./Signup";
 import Mainpage from "./Mainpage";
 import Logout from "./Logout";
 import Profile from "./Profile";
-import Template from "./Template";
 import "../Styles/navbar.css";
 import { Route, Routes, NavLink } from "react-router-dom";
 import logo from "../Images/myCV.png";
@@ -128,11 +127,6 @@ const Navbar = () => {
           exact
           path="/logout"
           element={<Logout setToggle={setToggle} Toggle={Toggle} />}
-        ></Route>
-        <Route
-          exact
-          path="/template"
-          element={<Template />}
         ></Route>
       </Routes>
     </>

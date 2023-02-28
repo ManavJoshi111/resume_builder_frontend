@@ -6,6 +6,7 @@ import Resume from "./Resume";
 import Form from "./Form";
 import Resume_1 from "../Images/resume1.png";
 import Resume_2 from "../Images/resume2.png";
+import Template from "../Components/Template";
 import "../Styles/mainpage.css";
 
 const Mainpage = (props) => {
@@ -91,7 +92,8 @@ const Mainpage = (props) => {
               <Form getName={getName} Info={Info}></Form>
             </div>
             <div className="rightcontainer mt-4">
-              <Resume data={Info} ref={componentRef} username={Info.username}></Resume>
+              {/* <Resume data={Info} ref={componentRef} username={Info.username}></Resume> */}
+              <Template data={Info} ref={componentRef} username={Info.username}></Template>
             </div>
             <button
               type="button"
