@@ -2,10 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 import { toast } from "react-toastify";
-import Resume from "./Resume";
 import Form from "./Form";
-import Resume_1 from "../Images/resume1.png";
-import Resume_2 from "../Images/resume2.png";
+import Resume_1 from "./Resume_1";
+import Resume_2 from "./Resume_2";
 import "../Styles/mainpage.css";
 
 const Mainpage = (props) => {
@@ -23,7 +22,7 @@ const Mainpage = (props) => {
         },
         credentials: "include",
       });
-      console.log("Response in Mainpage ", res);
+      // console.log("Response in Mainpage ", res);
       if (res.status !== 200) {
         toast.warn("Please Login First", {
           position: "top-center",
@@ -37,7 +36,6 @@ const Mainpage = (props) => {
         return;
       }
       const resJson = await res.json();
-      console.log(resJson);
       setInfo(resJson.crrUser);
       setid(resJson.crrUser._id);
       if (resJson.message === "Authenticated") {
@@ -62,7 +60,7 @@ const Mainpage = (props) => {
   const getName = (name) => {
     setName({ ...Name, ...name });
     setInfo({ ...Info, ...name });
-    console.log("Name after setName in mainpage : ", Info);
+    // console.log("Name after setName in mainpage : ", Info);
   };
 
   const sendData = async () => {
@@ -75,7 +73,11 @@ const Mainpage = (props) => {
       // body:
     });
     const resJson = await res.json();
-    console.log(resJson);
+    // console.log(resJson);
+  }
+  const [selectedOption, setSelectedOption] = useState("");
+  const handleChange = (e) => {
+    setSelectedOption(e.target.value);
   }
   if (Info.name) {
     return (
@@ -87,12 +89,21 @@ const Mainpage = (props) => {
            <img src={Resume_2} alt="" className="mx-2" height={270} width={250} />
          </div> */}
           <div className="container-fluid mt-3 flex-wrap d-flex flex-column flex-md-row justify-content-center align-items-flex-baseline">
+            <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={handleChange}>
+              <option selected>Select Template</option>
+              <option value="1">Template 1</option>
+              <option value="2">Template 2</option>
+            </select>
             <div className="leftcontainer">
-              <h2 className="heading h1 fw-bold">Enter Your Details : </h2>
+              <h2 className="heading h1 fw-bold d-block">Enter Your Details : </h2>
               <Form getName={getName} Info={Info}></Form>
             </div>
             <div className="rightcontainer mt-4">
-              <Resume data={Info} ref={componentRef} username={Info.username}></Resume>
+              {
+                selectedOption === "1" ? <Resume_1 data={Info} ref={componentRef} username={Info.username}></Resume_1> : selectedOption === "2" ? <Resume_2 data={Info} ref={componentRef} username={Info.username}></Resume_2> : <h2 className="heading h1 fw-bold d-block">Select Template</h2>
+              }
+              {/* <Resume data={Info} ref={componentRef} username={Info.username}></Resume> */}
+              {/* <Resume_2 data={Info} ref={componentRef} username={Info.username}></Resume_2> */}
             </div>
             <button
               type="button"
@@ -100,7 +111,7 @@ const Mainpage = (props) => {
               className="btn btn-primary mb-4 mt-2 align-self-center"
               onClick={() => { handlePrint(); sendData() }}
             >
-              Print Resume
+              Download PDF
             </button>
           </div>
         </>

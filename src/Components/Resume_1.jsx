@@ -1,12 +1,11 @@
 import React from "react";
 import "../Styles/resume.css";
 
-const Resume = React.forwardRef((props, ref) => {
+const Resume_1 = React.forwardRef((props, ref) => {
   console.log(props.data);
   return (
     <>
-      <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-      <div className="resume" ref={ref} id="print-content">
+      <div className="resume border border-dark" ref={ref} id="print-content">
         <div className="resume_left">
           <div className="resume_content">
             <div className="resume_item resume_info">
@@ -21,7 +20,7 @@ const Resume = React.forwardRef((props, ref) => {
                   props.data.contact && (
                     <li>
                       <i class="bi bi-telephone-fill text-light"></i>
-                      &nbsp;&nbsp;{props.data.contact}
+                      &nbsp;&nbsp;{props.data.number}
                     </li>
                   )
                 }
@@ -76,7 +75,9 @@ const Resume = React.forwardRef((props, ref) => {
               <div className="title">
                 <p className="bold">Achievements</p>
               </div>
-              <p className="semi-bold">{props.data.achievement}</p>
+              {props.data.achievements && props.data.achievements.map((ach) => {
+                return (<p className="semi-bold">{ach + " "}</p>);
+              })}
             </div>
           </div>
         </div>
@@ -97,7 +98,8 @@ const Resume = React.forwardRef((props, ref) => {
                   {props.data.collegesdate} — {props.data.collegeedate}
                 </div>
                 <div className="info">
-                  <p className="semi-bold">{props.data.cname}</p>
+                  <p className="semi-bold mb-0">{props.data.cname}</p>
+                  <p>CPI : {props.data.cpi}</p>
                 </div>
               </li>
             </ul>
@@ -106,46 +108,42 @@ const Resume = React.forwardRef((props, ref) => {
             <div className="title">
               <p className="bold">Project</p>
             </div>
-            <ul>
-              <li>
+            {props.data.projects && props.data.projects.map((project) => {
+              return (
                 <div className="info">
                   <div className="d-flex justify-content-between">
-                    <p className="semi-bold">{props.data.ptitle1}</p>
-                    {props.data.plink1 &&
-                      <p className="semi-bold td-underline"><a className="text-dark" href={props.data.plink1} target="_blank" ><u>Link</u></a></p>}
+                    <p className="semi-bold">{project.title}</p>
+                    {/* <u><a className="institution" target="_blank" href={`${project.link}`} > Link</a></u> */}
+                    {project.link &&
+                      <p className="semi-bold td-underline"><a className="text-dark" href={project.link} target="_blank" ><u>Link</u></a></p>}
                   </div>
-                  <p>{props.data.pdesc1}</p>
+                  <p className="">{project.description}</p>
                 </div>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <div className="info">
-                  <div className="d-flex justify-content-between">
-                    <p className="semi-bold">{props.data.ptitle2}</p>
-                    {props.data.plink2 &&
-                      <p className="semi-bold td-underline"><a className="text-dark" href={props.data.plink2} target="_blank" ><u>Link</u></a></p>}
-                  </div>
-                  <p>{props.data.pdesc2}</p>
-                </div>
-              </li>
-            </ul>
+              );
+            })}
           </div>
           <div className="resume_item resume_work">
             <div className="title">
               <p className="bold">Experience</p>
             </div>
-            <ul>
-              <li>
-                <div className="date">
-                  {props.data.sdate} — {props.data.edate}
-                </div>
-                <div className="info">
-                  <p className="semi-bold">{props.data.jtitle}</p>
-                  <p>{props.data.jdesc}</p>
-                </div>
-              </li>
-            </ul>
+            {
+              props.data.experience && props.data.experience.map((exp) => {
+                return (
+                  <ul>
+                    <li>
+                      <div className="job">
+                        {exp.sdate} — {exp.edate}
+                      </div>
+                      <div className="info">
+                        <p className="semi-bold">{exp.position}</p>
+                        <p>{exp.company}</p>
+                        <p>{exp.desc}</p>
+                      </div>
+                    </li>
+                  </ul>
+                );
+              })
+            }
           </div>
         </div >
       </div >
@@ -153,4 +151,4 @@ const Resume = React.forwardRef((props, ref) => {
   );
 });
 
-export default Resume;
+export default Resume_1;

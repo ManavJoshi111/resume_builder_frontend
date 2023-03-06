@@ -1,99 +1,97 @@
 import React, { useState, useEffect } from "react";
+import { Accordion, AccordionTab } from 'primereact/accordion';
 
 function Section4(props) {
-  const initialvalue = { ...props.Info, ...props.Info.skills, ...props.Info.certificates };
-  // const [Data, setData] = useState({ ...props.Info, ...props.Info.skills, ...props.Info.cer
-  // tificates });
-  const [Data, setData] = useState({ initialvalue });
-
-  const handleChange = (e) => {
-    setData({
-      ...Data,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const initalValue = { projects: [...props.Info.projects] };
+  const [Data, setData] = useState(initalValue);
 
   useEffect(() => {
     props.getName(Data);
   }, [Data]);
 
+  const renderProjects = () => {
+    const handleChange = (e) => {
+      let value = e.target.value;
+      let name = e.target.name;
+      let index = name.slice(name.length - 1);
+      let dummy = [...Data.projects];
+      dummy[index][name.slice(0, name.length - 1)] = value;
+      setData({ ...Data, projects: dummy });
+      console.log("Data in handleChange", Data);
+    };
+    return Data.projects.map((item, index) => {
+      return (
+        <>
+          <fieldset className="form-group border p-2 mt-3">
+            <legend className="h5">Project</legend>
+            <input
+              type="text"
+              className="form-control mt-2"
+              id="title1"
+              placeholder="Project Title"
+              required={true}
+              autoFocus=""
+              name={"title" + index}
+              onChange={handleChange}
+              value={Data.projects[index].title}
+            />
+            <input
+              type="text"
+              className="form-control mt-2"
+              id="title1"
+              placeholder="Project Description"
+              required={true}
+              autoFocus=""
+              name={"description" + index}
+              onChange={handleChange}
+              value={Data.projects[index].description}
+            />
+            <input
+              type="text"
+              className="form-control mt-2"
+              id="title1"
+              placeholder="Project Link"
+              required={true}
+              autoFocus=""
+              name={"link" + index}
+              onChange={handleChange}
+              value={Data.projects[index].link}
+            />
+          </fieldset>
+        </>
+      );
+    });
+  }
   return (
     <>
-      <div className={props.page !== 3 ? "pgdisplay" : ""}>
-        <fieldset className="form-group border p-2">
-          <legend className="h5">Project</legend>
-          <br />
-          <h6>Project 1 : </h6>
-          <input
-            type="text"
-            className="form-control"
-            id="title1"
-            placeholder="Title"
-            required={true}
-            autoFocus=""
-            name="ptitle1"
-            onChange={handleChange}
-            value={Data.ptitle1}
-          />
-          <textarea
-            type="text"
-            rows="3"
-            className="form-control"
-            id="desc1"
-            placeholder="Description"
-            required={true}
-            autoFocus=""
-            name="pdesc1"
-            onChange={handleChange}
-            value={Data.pdesc1}
-          />
-          <input
-            type="text"
-            className="form-control"
-            id="plink"
-            placeholder="Project Link (Please Place The Full Link)"
-            name="plink1"
-            onChange={handleChange}
-            value={Data.plink1}
-          />
-          <br />
-          <h6>Project 2 :</h6>
-          <input
-            type="text"
-            className="form-control"
-            id="title1"
-            placeholder="Title"
-            required={true}
-            autoFocus=""
-            name="ptitle2"
-            onChange={handleChange}
-            value={Data.ptitle2}
-          />
-          <textarea
-            type="text"
-            rows="3"
-            className="form-control"
-            id="desc1"
-            placeholder="Description"
-            required={true}
-            autoFocus=""
-            name="pdesc2"
-            onChange={handleChange}
-            value={Data.pdesc2}
-          />
-          <input
-            type="text"
-            className="form-control"
-            id="plink"
-            placeholder="Project Link (Please Place The Full Link)"
-            name="plink2"
-            onChange={handleChange}
-            value={Data.plink2}
-          />
-        </fieldset>
+      <div className={props.page !== 3 ? "pgdisplay" : ""} >
+        <Accordion>
+          <AccordionTab header="Add Projects">
+            {renderProjects()}
+            <button
+              type="button"
+              className="btn btn-info mt-1 mb-2"
+              id="pbtn"
+              onClick={(e) => {
+                setData((prevInput) => {
+                  return {
+                    ...prevInput,
+                    projects: [
+                      ...prevInput.projects,
+                      { title: "", description: "", link: "" }
+                    ],
+                  };
+                });
+              }}
+            >
+              +
+            </button>
+          </AccordionTab>
+        </Accordion>
       </div>
     </>
   );
+
 }
 
 export default Section4;
