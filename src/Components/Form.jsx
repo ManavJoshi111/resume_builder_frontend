@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import "../Styles/form.css";
+import { Accordion, AccordionTab } from 'primereact/accordion';
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
 
 const Form = (props) => {
+  // console.log("Props in form : ", props);
   const [page, setPage] = useState(0);
   const FormTitle = [
-    "Personal Info",
-    "Skills",
-    "About Yourself",
-    "Projects",
+    "Section 1",
+    "Section 2",
+    "Section 3",
+    "Sectionn 4",
   ];
   return (
     <>

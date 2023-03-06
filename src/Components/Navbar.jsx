@@ -11,7 +11,7 @@ import logo from "../Images/myCV.png";
 
 const Navbar = () => {
   const [Toggle, setToggle] = useState(false);
-  console.log(Toggle);
+  // console.log(Toggle);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light ">
