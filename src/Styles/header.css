@@ -27,7 +27,7 @@
 
 .rightcontainer {
   width: 60%;
-  font-family: "Hahmlet", serif;
+  /* font-family: "Hahmlet", serif; */
   transition: 1s;
 }
 
@@ -45,23 +45,28 @@
 }
 
 @media screen and (max-width: 768px) {
-  .leftcontainer{
+  .leftcontainer {
     padding: 0 !important;
   }
+
   .leftcontainer,
   .rightcontainer {
     width: 100%;
   }
-  .rightcontainer{
+
+  .rightcontainer {
     display: none;
   }
-  .btn-block{
+
+  .btn-block {
     margin-bottom: 20px !important;
   }
-  #hey{
+
+  #hey {
     font-size: 50px;
   }
-  .cvimage{
+
+  .cvimage {
     display: none;
   }
 }

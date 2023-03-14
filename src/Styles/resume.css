@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
 
 body,
 html {
@@ -231,8 +231,4 @@ body {
 
 .resume .resume_right .resume_hobby ul li:last-child:before {
   display: none;
-}
-
-.resume_2 {
-  font-family: 'Lato', serif !important;
 }

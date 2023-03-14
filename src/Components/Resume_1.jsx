@@ -31,13 +31,13 @@ const Resume_1 = React.forwardRef((props, ref) => {
                 }
                 {
                   props.data.portfolio && (
-                    <li className="data"><i class="bi bi-link">&nbsp; &nbsp;<a href={"https://" + props.data.portfolio} target="_blank">{props.data.portfolio}</a></i></li>
+                    <li className="data"><i class="bi bi-link">&nbsp; &nbsp;<a href={"https://" + props.data.portfolio} target="_blank" className="text-light">{props.data.portfolio}</a></i></li>
                   )
                 }
                 {
                   props.data.github && (
                     <li className="data">
-                      <i class="bi bi-github">&nbsp;&nbsp;<a href={"https://github.com/" + props.data.github} target="_blamnk">{props.data.github}</a></i>
+                      <i class="bi bi-github">&nbsp;&nbsp;<a href={"https://github.com/" + props.data.github} target="_blamnk" className="text-light">{props.data.github}</a></i>
                     </li>
                   )
                 }
