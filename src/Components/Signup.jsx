@@ -165,7 +165,7 @@ const Signup = (props) => {
                     </div>
                     <div className="form-group first">
                       <input
-                        type="text"
+                        type="password"
                         className="form-control mt-3"
                         placeholder="Password"
                         id="pswd"

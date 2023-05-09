@@ -13,7 +13,7 @@ const Resume_2 = React.forwardRef((props, ref) => {
                             <a href={`mailto:${props.data.email}`} target="_blank"><i className="bi bi-envelope-fill"></i> {props.data.email}</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <i className="bi bi-geo-alt-fill"></i> {props.data.address}&nbsp;&nbsp;&nbsp;&nbsp;
                             <br />
-                            <a href={`${props.data.portfolio}`} target="_blank"><i className="bi bi-link"></i> {props.data.portfolio}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href={`https://${props.data.portfolio}`} target="_blank"><i className="bi bi-link"></i> {props.data.portfolio}</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href={`https://github.com/${props.data.github}`} target="_blank"><i className="bi bi-github">{props.data.github}</i> </a>&nbsp;&nbsp;&nbsp;&nbsp;
                         </center>
                         <hr className="mb-0 mt-0" />
@@ -62,7 +62,7 @@ const Resume_2 = React.forwardRef((props, ref) => {
                                     <div className="job">
                                         <div className="d-flex justify-content-between flex-row">
                                             <h4>{project.title}</h4>
-                                            <u><a className="institution" target="_blank" href={`${project.link}`} > Link</a></u>
+                                            <u><a className="institution" target="_blank" href={`https://${project.link}`} > Link</a></u>
                                         </div>
                                         <p className="date pb-0 mb-0">{project.description}</p>
                                     </div>

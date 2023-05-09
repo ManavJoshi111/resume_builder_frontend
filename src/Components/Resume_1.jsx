@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/resume.css";
 
 const Resume_1 = React.forwardRef((props, ref) => {
-  console.log(props.data);
+  console.log("Resmue_1: ", props.data);
   return (
     <>
       <div className="resume border border-dark" ref={ref} id="print-content">
@@ -17,7 +17,7 @@ const Resume_1 = React.forwardRef((props, ref) => {
                   <li className="data"><i class="bi bi-envelope-fill">&nbsp; &nbsp;{props.data.email}</i></li>
                 )}
                 {
-                  props.data.contact && (
+                  props.data.number && (
                     <li>
                       <i class="bi bi-telephone-fill text-light"></i>
                       &nbsp;&nbsp;{props.data.number}
