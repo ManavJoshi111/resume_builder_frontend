@@ -46,7 +46,7 @@ a:hover {
   cursor: pointer;
   color: black;
   font-style: normal;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .notDisplay {

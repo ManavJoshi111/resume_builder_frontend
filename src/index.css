@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-@media print {
+/* @media print {
   body {
     transform: rotate(0deg);
     padding: 0;
@@ -24,4 +24,4 @@ code {
     size: A4 portrait;
     margin: 10cm;
   }
-}
+} */

@@ -115,7 +115,7 @@ const Resume_1 = React.forwardRef((props, ref) => {
                     <p className="semi-bold">{project.title}</p>
                     {/* <u><a className="institution" target="_blank" href={`${project.link}`} > Link</a></u> */}
                     {project.link &&
-                      <p className="semi-bold td-underline"><a className="text-dark" href={project.link} target="_blank" ><u>Link</u></a></p>}
+                      <p className="semi-bold td-underline"><a className="text-dark" href={`https://${project.link}`} target="_blank" ><u>Link</u></a></p>}
                   </div>
                   <p className="">{project.description}</p>
                 </div>
