@@ -20,9 +20,7 @@ const Signup = (props) => {
         },
         credentials: "include",
       });
-      console.log("Response in Mainpage ", res);
       const resJson = await res.json();
-      console.log(resJson);
       if (resJson.message === "Authenticated") props.setToggle(true);
     } catch (err) {
       console.log(err);
@@ -55,14 +53,12 @@ const Signup = (props) => {
         [e.target.name]: e.target.files[0],
       });
     }
-    console.log("Data in handleonchange : ", Data);
   };
 
   const sendData = async (e) => {
     e.preventDefault();
     e.target.disabled = true;
     e.target.value = "Signing Up...";
-    console.log("Data is : ", Data);
     const res = await fetch(`${process.env.REACT_APP_SERVER_URL}signup`, {
       method: "POST",
       headers: {
@@ -70,12 +66,9 @@ const Signup = (props) => {
       },
       body: JSON.stringify(Data),
     });
-    console.log(res);
     e.target.disabled = false;
     e.target.value = "Sign Up";
     const resJson = await res.json();
-    console.log(resJson);
-    console.log("Disabled : ", e.target.disabled);
     if (resJson.message) {
       toast.success(resJson.message, {
         position: "top-center",

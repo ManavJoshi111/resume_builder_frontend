@@ -14,9 +14,7 @@ const Header = (props) => {
         },
         credentials: "include",
       });
-      console.log("Response in Mainpage ", res);
       const resJson = await res.json();
-      console.log(resJson);
       if (resJson.message === "Authenticated") props.setToggle(true);
     } catch (err) {
       console.log(err);

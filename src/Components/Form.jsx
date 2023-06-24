@@ -7,7 +7,6 @@ import Section3 from "./Section3";
 import Section4 from "./Section4";
 
 const Form = (props) => {
-  // console.log("Props in form : ", props);
   const [page, setPage] = useState(0);
   const FormTitle = [
     "Section 1",

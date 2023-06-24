@@ -2,7 +2,6 @@ import React from "react";
 import "../Styles/resume.css";
 
 const Resume_1 = React.forwardRef((props, ref) => {
-  console.log("Resmue_1: ", props.data);
   return (
     <>
       <div className="resume border border-dark" ref={ref} id="print-content">

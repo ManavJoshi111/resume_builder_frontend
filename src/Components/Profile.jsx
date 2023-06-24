@@ -16,7 +16,6 @@ const Profile = (props) => {
         },
         credentials: "include",
       });
-      console.log("Response in Mainpage ", res);
       if (res.status !== 200) {
         toast.warn("Please Login First", {
           position: "top-center",
@@ -33,9 +32,7 @@ const Profile = (props) => {
         props.setToggle(true);
       }
       const resJson = await res.json();
-      console.log(resJson);
       setUser(resJson.crrUser);
-      console.log("User is : ", resJson);
     } catch (err) {
       console.log(err);
     }

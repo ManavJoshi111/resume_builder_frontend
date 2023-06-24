@@ -9,8 +9,6 @@ import {
 import login from "../Images/log_in.png";
 
 const Login = (props) => {
-  console.log("In Login :::::::::");
-  console.log(`${process.env.REACT_APP_SERVER_URL}makecv`);
   const Authenticate = async () => {
     try {
       const res = await fetch(`${process.env.REACT_APP_SERVER_URL}makecv`, {
@@ -21,9 +19,7 @@ const Login = (props) => {
         },
         credentials: "include",
       });
-      console.log("Response in Mainpage ", res);
       const resJson = await res.json();
-      console.log(resJson);
       if (resJson.message === "Authenticated") props.setToggle(true);
     } catch (err) {
       console.log(err);

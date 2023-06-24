@@ -21,7 +21,6 @@ const Logout = (props) => {
             replace: true,
           });
         }
-        console.log(res);
         if (res.status !== 200) throw new Error();
       })
       .catch((err) => {
