@@ -30,7 +30,7 @@ const Login = (props) => {
   }, []);
   let navigate = useNavigate();
   const initialData = {
-    username: "",
+    email: "",
     password: "",
   };
   const [Data, setData] = useState(initialData);
@@ -48,7 +48,7 @@ const Login = (props) => {
     console.log("Disabled : ", e.target.disabled);
     e.target.disabled = true;
     e.target.value = "Logging In...";
-    const { username, password } = Data;
+    const { email, password } = Data;
     let res;
     res = await fetch(`${process.env.REACT_APP_SERVER_URL}login`, {
       method: "POST",
@@ -59,7 +59,7 @@ const Login = (props) => {
         "Access-Control-Allow-Headers": "Content-Type,Authorization"
       },
       credentials: "include",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
     });
     console.log(res);
     e.target.disabled = false;
@@ -137,9 +137,9 @@ const Login = (props) => {
                       <input
                         type="text"
                         className="form-control"
-                        name="username"
-                        placeholder="Username"
-                        id="username"
+                        name="email"
+                        placeholder="Email"
+                        id="email"
                         onChange={handleonchange}
                       ></input>
                     </div>

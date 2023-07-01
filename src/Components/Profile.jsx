@@ -17,7 +17,7 @@ const Profile = (props) => {
         credentials: "include",
       });
       if (res.status !== 200) {
-        toast.warn("Please Login First", {
+        toast.warn("Please Login...!", {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: true,
@@ -84,14 +84,6 @@ const Profile = (props) => {
               <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>User Id</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>{User.username}</p>
-                      </div>
-                    </div>
                     <div class="row">
                       <div class="col-md-6">
                         <label>Name</label>

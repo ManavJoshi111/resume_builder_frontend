@@ -32,7 +32,6 @@ const Signup = (props) => {
   let navigate = useNavigate();
   const initialvalue = {
     name: "",
-    username: "",
     email: "",
     number: "",
     password: "",
@@ -123,16 +122,6 @@ const Signup = (props) => {
                         placeholder="Name"
                         id="name"
                         name="name"
-                        onChange={handleonchange}
-                      />
-                    </div>
-                    <div className="form-group first">
-                      <input
-                        type="text"
-                        className="form-control mt-4"
-                        placeholder="Usename"
-                        id="uname"
-                        name="username"
                         onChange={handleonchange}
                       />
                     </div>

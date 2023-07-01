@@ -38,6 +38,7 @@ function Section1(props) {
           type="text"
           className="form-control"
           placeholder="Email Address"
+          readOnly
           required={true}
           autoFocus=""
           name="email"

@@ -24,7 +24,7 @@ const Mainpage = (props) => {
       });
       // console.log("Response in Mainpage ", res);
       if (res.status !== 200) {
-        toast.warn("Please Login First", {
+        toast.warn("Please Login...!", {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: true,
