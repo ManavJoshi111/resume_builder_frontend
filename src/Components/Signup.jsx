@@ -64,6 +64,7 @@ const Signup = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(Data),
+      credentials: "include",
     });
     e.target.disabled = false;
     e.target.value = "Sign Up";
